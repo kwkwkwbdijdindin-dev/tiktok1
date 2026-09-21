@@ -4,550 +4,539 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hadiah Ulang Tahun Untuk Zimik </title>
+<title>MIKOSA</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    min-height:100vh;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
-    background:
-    radial-gradient(circle at top,#ffdff0,#ffafd4 45%,#ff76b2);
-    color:white;
+    background:#000;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
 }
 
 /* =========================
-   BACKGROUND
+   LOADING
 ========================= */
 
-#background{
+#loading{
     position:fixed;
     inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
-}
-
-.bg-heart{
-    position:absolute;
-    top:-50px;
-    animation:jatuh linear forwards;
-    opacity:.8;
-}
-
-@keyframes jatuh{
-
-    0%{
-        transform:translateY(-50px) rotate(0);
-        opacity:0;
-    }
-
-    15%{
-        opacity:1;
-    }
-
-    100%{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-    }
-
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    position:relative;
-    z-index:2;
-    width:100%;
-    height:100vh;
-
+    background:#000;
+    z-index:9999;
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
+}
 
-    padding:20px;
+.loading-box{
+    width:90%;
+    max-width:800px;
+    font-family:monospace;
+}
+
+.loading-title{
+    font-size:clamp(25px,5vw,55px);
+    font-weight:bold;
+    letter-spacing:8px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.code-area{
+    height:300px;
+    overflow:hidden;
+    border:1px solid #333;
+    padding:15px;
+    background:#000;
+    box-shadow:0 0 30px #fff2;
+}
+
+.code-line{
+    font-size:14px;
+    line-height:1.7;
+    color:#fff;
+    opacity:.8;
+    white-space:nowrap;
+}
+
+.progress{
+    margin-top:20px;
+    height:3px;
+    background:#222;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#fff;
+    animation:download 5s linear forwards;
+}
+
+.loading-status{
+    margin-top:12px;
+    display:flex;
+    justify-content:space-between;
+    font-family:monospace;
+    font-size:13px;
+}
+
+@keyframes download{
+    from{width:0%}
+    to{width:100%}
 }
 
 /* =========================
    LOGIN
 ========================= */
 
+#login{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9000;
+}
+
 .login-box{
-
-    width:100%;
-    max-width:400px;
-
-    padding:35px 25px;
-
+    width:90%;
+    max-width:430px;
     text-align:center;
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(18px);
-
-    border:2px solid rgba(255,255,255,.45);
-
-    border-radius:30px;
-
-    box-shadow:
-    0 20px 70px rgba(180,0,90,.3);
-
-    animation:muncul .8s ease;
-
+    padding:40px 25px;
+    border:1px solid #333;
+    background:#050505;
+    box-shadow:0 0 40px #fff1;
 }
 
-@keyframes muncul{
-
-    from{
-        opacity:0;
-        transform:scale(.8) translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
-
+.logo{
+    font-size:clamp(45px,12vw,80px);
+    font-weight:900;
+    letter-spacing:8px;
+    margin-bottom:20px;
+    animation:glitch 1.5s infinite;
 }
 
-.gift{
-
-    font-size:80px;
-
-    animation:loncat 1.5s infinite;
-
-}
-
-@keyframes loncat{
-
+@keyframes glitch{
     0%,100%{
-        transform:translateY(0);
+        text-shadow:0 0 10px #fff;
     }
-
     50%{
-        transform:translateY(-15px) rotate(5deg);
+        text-shadow:5px 0 #fff,-5px 0 #777;
     }
-
 }
 
-.login-box h1{
-
-    margin:12px 0;
-
-    font-size:30px;
-
+.login-box h2{
+    font-size:18px;
+    letter-spacing:4px;
+    margin-bottom:10px;
 }
 
 .login-box p{
-
-    margin-bottom:22px;
-
-    opacity:.9;
-
-    line-height:1.5;
-
+    color:#777;
+    margin-bottom:20px;
 }
 
 input{
-
     width:100%;
-
     padding:15px;
-
-    border:none;
-
+    background:#000;
+    border:1px solid #555;
+    color:#fff;
     outline:none;
-
-    border-radius:15px;
-
     text-align:center;
-
-    font-size:17px;
-
-    margin-bottom:12px;
-
+    font-size:16px;
 }
 
-button{
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:14px 22px;
-
-    border-radius:15px;
-
-    font-size:15px;
-
-    font-weight:bold;
-
-    transition:.3s;
-
+input:focus{
+    border-color:#fff;
+    box-shadow:0 0 15px #fff2;
 }
 
-button:hover{
-
-    transform:scale(1.05);
-
-}
-
-.btn-pink{
-
-    background:white;
-
-    color:#e83d91;
-
-    width:100%;
-
+.login-box span{
+    display:block;
+    margin-top:15px;
+    font-size:12px;
+    color:#555;
 }
 
 #error{
-
-    min-height:24px;
-
-    margin-top:10px;
-
-    color:white;
-
-    font-weight:bold;
-
+    margin-top:15px;
+    font-family:monospace;
+    min-height:18px;
 }
 
 /* =========================
-   HADIAH
+   WEBSITE
 ========================= */
 
-#hadiah{
-
+#website{
     display:none;
-
 }
 
-.card{
+section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 25px;
+    position:relative;
+    overflow:hidden;
+    background:#000;
+}
 
+.content{
     width:100%;
-
-    max-width:650px;
-
-    max-height:90vh;
-
-    overflow:auto;
-
+    max-width:1100px;
     text-align:center;
-
-    padding:30px 22px;
-
-    background:rgba(255,255,255,.20);
-
-    backdrop-filter:blur(18px);
-
-    border:2px solid rgba(255,255,255,.5);
-
-    border-radius:35px;
-
-    box-shadow:
-    0 20px 70px rgba(170,0,90,.3);
-
-    animation:muncul .8s ease;
-
 }
 
-.card::-webkit-scrollbar{
+/* garis background */
 
-    width:5px;
-
+section::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#222;
+    top:50%;
 }
 
-.card::-webkit-scrollbar-thumb{
+/* BIG TEXT */
 
-    background:white;
+.big-text{
+    font-size:clamp(50px,12vw,140px);
+    font-weight:900;
+    letter-spacing:5px;
+    white-space:nowrap;
 
-    border-radius:10px;
+    opacity:0;
+    transform:translateX(-150px);
 
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
-.card h1{
-
-    font-size:38px;
-
-    margin-bottom:8px;
-
+section.active .big-text{
+    opacity:1;
+    transform:translateX(0);
 }
 
-.subtitle{
+/* DESCRIPTION */
 
+.description{
+    max-width:800px;
+    margin:30px auto 0;
+    color:#999;
     font-size:18px;
+    line-height:1.8;
 
+    opacity:0;
+    transform:translateY(60px);
+
+    transition:
+        opacity 1s ease .2s,
+        transform 1s ease .2s;
+}
+
+section.active .description{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+}
+
+.hero-small{
+    font-family:monospace;
+    color:#777;
+    letter-spacing:6px;
     margin-bottom:20px;
 
+    opacity:0;
+    transform:translateY(-30px);
+
+    transition:1s;
 }
 
-/* =========================
-   CAKE
-========================= */
-
-.cake{
-
-    font-size:90px;
-
-    margin:10px;
-
-    animation:geleng 2s infinite;
-
+.hero.active .hero-small{
+    opacity:1;
+    transform:translateY(0);
 }
 
-@keyframes geleng{
+.hero h1{
+    font-size:clamp(70px,18vw,190px);
+    font-weight:900;
+    letter-spacing:10px;
 
-    0%,100%{
-        transform:rotate(-3deg);
-    }
+    opacity:0;
+    transform:translateX(-200px);
 
-    50%{
-        transform:rotate(3deg);
-    }
-
+    transition:1.2s;
 }
 
-/* =========================
-   PESAN
-========================= */
-
-.message{
-
-    background:rgba(255,255,255,.18);
-
-    border-radius:22px;
-
-    padding:20px;
-
-    margin:20px 0;
-
-    line-height:1.7;
-
+.hero.active h1{
+    opacity:1;
+    transform:translateX(0);
 }
 
-.message h2{
-
-    margin-bottom:10px;
-
-}
-
-/* =========================
-   BUTTON FITUR
-========================= */
-
-.features{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:10px;
-
-    margin-top:15px;
-
-}
-
-.features button{
-
-    background:white;
-
-    color:#e63d91;
-
-}
-
-/* =========================
-   POPUP
-========================= */
-
-.popup{
-
-    position:fixed;
-
-    inset:0;
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(90,0,50,.5);
-
-    z-index:50;
-
-    padding:20px;
-
-}
-
-.popup-box{
-
-    width:100%;
-
-    max-width:420px;
-
-    background:white;
-
-    color:#e23c8d;
-
-    padding:30px 25px;
-
-    border-radius:28px;
-
-    text-align:center;
-
-    box-shadow:0 20px 70px rgba(0,0,0,.3);
-
-    animation:popup .4s ease;
-
-}
-
-@keyframes popup{
-
-    from{
-
-        transform:scale(.6);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-}
-
-.popup-box h2{
-
-    margin-bottom:15px;
-
-}
-
-.popup-box p{
-
-    line-height:1.7;
-
-    color:#555;
-
-}
-
-.close{
-
+.hero p{
+    color:#777;
     margin-top:20px;
+    letter-spacing:4px;
 
-    background:#ff72ae;
+    opacity:0;
+    transform:translateY(40px);
 
-    color:white;
+    transition:1s .3s;
+}
 
+.hero.active p{
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* =========================
-   RESPONSIVE
+   PORTFOLIO
 ========================= */
 
-@media(max-width:500px){
-
-    .login-box{
-
-        padding:30px 20px;
-
-    }
-
-    .login-box h1{
-
-        font-size:25px;
-
-    }
-
-    .card{
-
-        padding:25px 17px;
-
-    }
-
-    .card h1{
-
-        font-size:29px;
-
-    }
-
-    .cake{
-
-        font-size:70px;
-
-    }
-
-    .message{
-
-        font-size:14px;
-
-    }
-
+.portfolio-list{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
+.project{
+    border-left:2px solid #fff;
+    padding:22px;
+    text-align:left;
+    background:#080808;
+
+    opacity:0;
+    transform:translateX(-120px);
+
+    transition:1s;
+}
+
+.project:nth-child(2){
+    transition-delay:.2s;
+}
+
+.project:nth-child(3){
+    transition-delay:.4s;
+}
+
+section.active .project{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.project h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.project p{
+    color:#777;
+}
+
+/* =========================
+   HTML / CSS
+========================= */
+
+.code{
+    margin-top:35px;
+    padding:30px;
+    text-align:left;
+    background:#050505;
+    border:1px solid #222;
+
+    opacity:0;
+    transform:translateX(120px);
+
+    transition:1s;
+}
+
+section.active .code{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.code span{
+    color:#777;
+    font-family:monospace;
+    line-height:2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    min-height:60vh;
+}
+
+.footer h2{
+    font-size:70px;
+    letter-spacing:8px;
+
+    opacity:0;
+    transform:translateY(50px);
+
+    transition:1s;
+}
+
+.footer.active h2{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.footer p{
+    color:#555;
+    margin-top:20px;
+    letter-spacing:4px;
+}
+
+/* =========================
+   PARTICLE
+========================= */
+
+.particle{
+    position:fixed;
+    bottom:-20px;
+    color:#fff;
+    font-family:monospace;
+    font-size:12px;
+    pointer-events:none;
+    animation:floatUp 5s linear forwards;
+    z-index:1;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    section{
+        padding:40px 18px;
+    }
+
+    .big-text{
+        white-space:normal;
+        font-size:17vw;
+    }
+
+    .description{
+        font-size:15px;
+    }
+
+    .code-area{
+        height:250px;
+    }
+
+    .code-line{
+        font-size:11px;
+    }
+
+    .footer h2{
+        font-size:45px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <!-- =========================
-     BACKGROUND
+     LOADING KODE
 ========================= -->
 
-<div id="background"></div>
+<div id="loading">
+
+    <div class="loading-box">
+
+        <div class="loading-title">
+            MIKOSA
+        </div>
+
+        <div class="code-area" id="codeArea"></div>
+
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="loading-status">
+            <span id="status">DOWNLOADING CODE...</span>
+            <span id="percent">0%</span>
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- =========================
-     HALAMAN LOGIN
+     LOGIN
 ========================= -->
 
-<div class="container" id="login">
+<div id="login">
 
     <div class="login-box">
 
-        <div class="gift">
-            🎁
+        <div class="logo">
+            MIKOSA
         </div>
 
-        <h1>
-            Hadiah Spesial 
-        </h1>
+        <h2>PRIVATE ACCESS</h2>
 
-        <p>
-            Ada kejutan kecil untuk seseorang
-            yang sangat spesial ✨
-        </p>
+        <p>Ketik sandi untuk masuk</p>
 
         <input
-            type="text"
-            id="nama"
-            placeholder="Masukkan nama..."
+            type="password"
+            id="password"
+            placeholder="Ketik sandi..."
             autocomplete="off"
         >
 
-        <button
-            class="btn-pink"
-            onclick="bukaHadiah()"
-        >
-            🔓 Buka Hadiah
-        </button>
+        <span>
+            Tekan ENTER untuk membuka
+        </span>
 
         <div id="error"></div>
 
@@ -557,245 +546,378 @@ button:hover{
 
 
 <!-- =========================
-     HALAMAN HADIAH
+     WEBSITE
 ========================= -->
 
-<div class="container" id="hadiah">
+<div id="website">
 
-    <div class="card">
+    <!-- HERO -->
 
-        <div class="cake">
-            🎂
-        </div>
+    <section class="hero">
 
-        <h1>
-            Selamat Ulang Tahun! 🎉
-        </h1>
+        <div class="content">
 
-        <div class="subtitle">
-            Untuk <b>Zimik</b> 
-        </div>
+            <div class="hero-small">
+                WELCOME TO
+            </div>
 
-        <div class="message">
-
-            <h2>
-                💌 Pesan Untukmu
-            </h2>
+            <h1>
+                MIKOSA
+            </h1>
 
             <p>
-
-                Selamat bertambah usia, Zimik! 🥳
-
-                <br><br>
-
-                Semoga di usia yang baru ini,
-                kamu semakin kuat,
-                semakin percaya diri,
-                dan semakin dekat
-                dengan semua impianmu.
-
-                <br><br>
-
-                Jangan takut dengan proses
-                yang panjang.
-                Setiap langkah kecil yang kamu lakukan
-                tetap membawa kamu lebih dekat
-                dengan tujuanmu. ✨
-
-                <br><br>
-
-                Kalau hari ini terasa berat,
-                jangan menyerah.
-                Istirahat boleh,
-                tetapi jangan berhenti berusaha.
-
-                <br><br>
-
-                <b>
-                Percayalah, kamu mampu melewati
-                lebih banyak hal daripada yang kamu kira. 💪💗
-                </b>
-
+                HTML • CSS • CREATIVE CODE
             </p>
 
         </div>
 
+    </section>
 
-        <!-- =========================
-             FITUR
-        ========================= -->
 
-        <div class="features">
+    <!-- UCAPAN -->
 
-            <button onclick="pesanSemangat()">
-                💪 Semangat
-            </button>
+    <section>
 
-            <button onclick="doa()">
-                🤲 Doa
-            </button>
+        <div class="content">
 
-            <button onclick="kejutan()">
-                🎁 Kejutan
-            </button>
+            <div class="big-text">
+                UCAPAN
+            </div>
 
-            <button onclick="buatHati()">
-                💗 Hati
-            </button>
+            <div class="description">
 
-            <button id="musicButton" onclick="putarMusik()">
-                🎵 Musik
-            </button>
+                Selamat datang di halaman MIKOSA.
+                Sebuah ruang sederhana untuk menampilkan
+                karya, proses belajar, dan perjalanan dalam
+                dunia coding.
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                PORTFOLIO
+            </div>
+
+            <div class="portfolio-list">
+
+                <div class="project">
+
+                    <h3>
+                        WEB DESIGN
+                    </h3>
+
+                    <p>
+                        Membuat website dengan tampilan
+                        modern, responsif, dan penuh animasi.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        DIGITAL PROJECT
+                    </h3>
+
+                    <p>
+                        Mengembangkan berbagai proyek
+                        digital menggunakan HTML, CSS,
+                        dan JavaScript.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        CREATIVE PROJECT
+                    </h3>
+
+                    <p>
+                        Menggabungkan desain, animasi,
+                        dan teknologi menjadi sebuah karya.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HTML -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                HTML
+            </div>
+
+            <div class="description">
+
+                HTML digunakan untuk membangun struktur
+                sebuah halaman website.
+
+            </div>
+
+            <div class="code">
+
+                <span>
+                    &lt;html&gt;<br>
+                    &nbsp;&nbsp;&lt;head&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;MIKOSA&lt;/title&gt;<br>
+                    &nbsp;&nbsp;&lt;/head&gt;<br>
+                    &nbsp;&nbsp;&lt;body&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Hello MIKOSA<br>
+                    &nbsp;&nbsp;&lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CSS -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                CSS
+            </div>
+
+            <div class="description">
+
+                CSS digunakan untuk mengatur tampilan,
+                warna, ukuran, posisi, dan animasi website.
+
+            </div>
+
+            <div class="code">
+
+                <span>
+                    body {<br>
+                    &nbsp;&nbsp;background: #000;<br>
+                    &nbsp;&nbsp;color: #fff;<br>
+                    }<br><br>
+
+                    .mikosa {<br>
+                    &nbsp;&nbsp;animation: slide 1s;<br>
+                    }
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <section class="footer">
+
+        <div class="content">
+
+            <h2>
+                MIKOSA
+            </h2>
+
+            <p>
+                KEEP LEARNING • KEEP CREATING
+            </p>
+
+        </div>
+
+    </section>
 
 </div>
-
-
-<!-- =========================
-     POPUP
-========================= -->
-
-<div class="popup" id="popup">
-
-    <div class="popup-box">
-
-        <h2 id="popupTitle">
-            💗
-        </h2>
-
-        <p id="popupText"></p>
-
-        <button
-            class="close"
-            onclick="tutupPopup()"
-        >
-            Tutup
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     MUSIK
-========================= -->
-
-<audio
-    id="musik"
-    loop
-    preload="auto"
->
-
-    <source
-        src="musik.mp3"
-        type="audio/mpeg"
-    >
-
-</audio>
 
 
 <script>
 
-/* =================================
-   BUKA HADIAH
-================================= */
+/* =========================
+   LOADING CODE
+========================= */
 
-function bukaHadiah(){
+const codeArea =
+    document.getElementById("codeArea");
 
-    const nama =
-        document
-        .getElementById("nama")
-        .value
-        .trim()
-        .toLowerCase();
+const percent =
+    document.getElementById("percent");
 
-    const error =
-        document
-        .getElementById("error");
+const status =
+    document.getElementById("status");
 
-    if(nama === "zimik"){
+let loadingNumber = 0;
 
-        /* Sembunyikan login */
+const characters =
+"0123456789ABCDEF<>/{}[]();=+-_*#$%";
 
-        document
-        .getElementById("login")
-        .style.display="none";
+const loadingInterval =
+setInterval(function(){
 
+    let line = "";
 
-        /* Tampilkan hadiah */
+    for(let i=0;i<65;i++){
 
-        document
-        .getElementById("hadiah")
-        .style.display="flex";
-
-
-        error.innerText="";
-
-
-        /* Animasi hati */
-
-        buatHati();
-
-
-        /* =========================
-           MUSIK OTOMATIS
-        ========================= */
-
-        const musik =
-            document.getElementById("musik");
-
-        musik.volume=0.7;
-
-
-        musik.play()
-        .then(()=>{
-
-            document
-            .getElementById("musicButton")
-            .innerHTML="🔊 Musik ON";
-
-        })
-        .catch(()=>{
-
-            document
-            .getElementById("musicButton")
-            .innerHTML="🎵 Putar Musik";
-
-        });
+        line += characters[
+            Math.floor(
+                Math.random()*characters.length
+            )
+        ];
 
     }
 
-    else{
+    const div =
+        document.createElement("div");
 
-        error.innerText =
-        "❌ Nama salah, hadiah belum bisa dibuka.";
+    div.className = "code-line";
 
-        document
-        .getElementById("nama")
-        .value="";
+    div.innerText =
+        "0x" +
+        Math.floor(Math.random()*999999)
+        .toString(16)
+        .toUpperCase()
+        +
+        "  " +
+        line;
+
+    codeArea.appendChild(div);
+
+    if(codeArea.children.length > 14){
+
+        codeArea.removeChild(
+            codeArea.children[0]
+        );
 
     }
 
-}
+    loadingNumber++;
+
+    let p =
+        Math.min(
+            100,
+            Math.floor(loadingNumber/1.5)
+        );
+
+    percent.innerText =
+        p + "%";
+
+},100);
 
 
-/* =================================
-   ENTER
-================================= */
+/* loading selesai */
 
-document
-.getElementById("nama")
-.addEventListener(
-    "keypress",
+setTimeout(function(){
+
+    clearInterval(loadingInterval);
+
+    percent.innerText="100%";
+
+    status.innerText=
+        "CODE LOADED • READY";
+
+    setTimeout(function(){
+
+        document.getElementById("loading")
+        .style.opacity="0";
+
+        setTimeout(function(){
+
+            document.getElementById("loading")
+            .style.display="none";
+
+            document.getElementById("login")
+            .style.display="flex";
+
+            document.getElementById("password")
+            .focus();
+
+        },800);
+
+    },700);
+
+},5500);
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+const passwordInput =
+    document.getElementById("password");
+
+passwordInput.addEventListener(
+    "keydown",
     function(e){
 
-        if(e.key==="Enter"){
+        if(e.key === "Enter"){
 
-            bukaHadiah();
+            const password =
+                passwordInput.value;
+
+            const error =
+                document.getElementById("error");
+
+            if(password === "mikosa12345678"){
+
+                error.style.color="#fff";
+
+                error.innerText=
+                    "✓ ACCESS GRANTED";
+
+                setTimeout(function(){
+
+                    document.getElementById("login")
+                    .style.opacity="0";
+
+                    setTimeout(function(){
+
+                        document.getElementById("login")
+                        .style.display="none";
+
+                        document.getElementById("website")
+                        .style.display="block";
+
+                        window.scrollTo(0,0);
+
+                        checkScroll();
+
+                    },800);
+
+                },500);
+
+            }else{
+
+                error.style.color="#777";
+
+                error.innerText=
+                    "✕ SANDI SALAH";
+
+                passwordInput.value="";
+
+            }
 
         }
 
@@ -803,315 +925,1163 @@ document
 );
 
 
-/* =================================
-   POPUP
-================================= */
+/* =========================
+   SCROLL ANIMATION
+   REPLAY SETIAP SCROLL
+========================= */
 
-function tampilPopup(judul,isi){
-
-    document
-    .getElementById("popupTitle")
-    .innerText=judul;
-
-    document
-    .getElementById("popupText")
-    .innerText=isi;
-
-    document
-    .getElementById("popup")
-    .style.display="flex";
-
-}
-
-
-function tutupPopup(){
-
-    document
-    .getElementById("popup")
-    .style.display="none";
-
-}
-
-
-/* =================================
-   SEMANGAT
-================================= */
-
-function pesanSemangat(){
-
-    tampilPopup(
-
-        "💪 Tetap Semangat!",
-
-        "Tidak semua hari akan mudah, tetapi setiap hari selalu punya kesempatan baru. Jangan membandingkan perjalananmu dengan orang lain. Fokus pada langkahmu sendiri dan terus maju sedikit demi sedikit. Kamu pasti bisa! ✨"
-
+const sections =
+    document.querySelectorAll(
+        "#website section"
     );
 
-}
+const observer =
+    new IntersectionObserver(
 
+        function(entries){
 
-/* =================================
-   DOA
-================================= */
+            entries.forEach(function(entry){
 
-function doa(){
+                if(entry.isIntersecting){
 
-    tampilPopup(
+                    entry.target
+                        .classList
+                        .add("active");
 
-        "🤲 Doa Untukmu",
+                }else{
 
-        "Semoga selalu diberikan kesehatan, kebahagiaan, kelancaran dalam belajar dan menjalani kehidupan, dimudahkan dalam mengejar cita-cita, serta dipertemukan dengan banyak hal baik di masa depan. Aamiin. 💗"
+                    entry.target
+                        .classList
+                        .remove("active");
 
-    );
-
-}
-
-
-/* =================================
-   KEJUTAN
-================================= */
-
-function kejutan(){
-
-    tampilPopup(
-
-        "🎁 Kejutan!",
-
-        "Kejutan sebenarnya adalah... kamu sudah berhasil sampai sejauh ini. Jangan lupa menghargai dirimu sendiri. Teruslah tumbuh, belajar, dan menjadi versi terbaik dari dirimu. ✨"
-
-    );
-
-    ledakanHati();
-
-}
-
-
-/* =================================
-   HATI
-================================= */
-
-function buatHati(){
-
-    for(let i=0;i<20;i++){
-
-        setTimeout(()=>{
-
-            const hati =
-                document.createElement("div");
-
-            hati.innerHTML =
-                ["💗","💕","💖","💓","💞"]
-                [
-                    Math.floor(
-                        Math.random()*5
-                    )
-                ];
-
-            hati.style.position="fixed";
-
-            hati.style.left =
-                Math.random()*100+"vw";
-
-            hati.style.bottom="-40px";
-
-            hati.style.fontSize =
-                (20+Math.random()*25)+"px";
-
-            hati.style.zIndex="20";
-
-            hati.style.transition =
-                "transform 4s linear, opacity 4s";
-
-            document
-            .body
-            .appendChild(hati);
-
-
-            setTimeout(()=>{
-
-                hati.style.transform =
-                    `translateY(-110vh)
-                     rotate(${Math.random()*360}deg)`;
-
-                hati.style.opacity="0";
-
-            },50);
-
-
-            setTimeout(()=>{
-
-                hati.remove();
-
-            },4200);
-
-        },i*120);
-
-    }
-
-}
-
-
-/* =================================
-   LEDAKAN HATI
-================================= */
-
-function ledakanHati(){
-
-    for(let i=0;i<45;i++){
-
-        const hati =
-            document.createElement("div");
-
-        hati.innerHTML =
-            ["💗","💕","💖","💓","💞"]
-            [
-                Math.floor(
-                    Math.random()*5
-                )
-            ];
-
-        hati.style.position="fixed";
-
-        hati.style.left="50%";
-
-        hati.style.top="50%";
-
-        hati.style.zIndex="100";
-
-        hati.style.fontSize =
-            (15+Math.random()*30)+"px";
-
-        document
-        .body
-        .appendChild(hati);
-
-
-        const x =
-            (Math.random()-.5)*500;
-
-        const y =
-            (Math.random()-.5)*500;
-
-
-        hati.animate(
-
-            [
-
-                {
-                    transform:
-                    "translate(-50%,-50%) scale(0)",
-                    opacity:1
-                },
-
-                {
-                    transform:
-                    `translate(${x}px,${y}px) scale(1.5)`,
-                    opacity:0
                 }
 
-            ],
+            });
 
-            {
-                duration:1200,
-                easing:"ease-out"
-            }
+        },
 
-        );
+        {
+            threshold:0.35
+        }
 
-
-        setTimeout(()=>{
-
-            hati.remove();
-
-        },1200);
-
-    }
-
-}
+    );
 
 
-/* =================================
-   BACKGROUND
-================================= */
+sections.forEach(function(section){
 
-function backgroundHati(){
+    observer.observe(section);
 
-    const heart =
+});
+
+
+/* =========================
+   PARTICLE ANGKA
+========================= */
+
+function createParticle(){
+
+    const particle =
         document.createElement("div");
 
-    heart.className="bg-heart";
+    particle.className="particle";
 
-    heart.innerHTML =
-        ["💗","🌸","💕","✨","💖"]
-        [
+    particle.innerText =
+        Math.floor(
+            Math.random()*999999
+        );
+
+    particle.style.left =
+        Math.random()*100 + "%";
+
+    particle.style.animationDuration =
+        (3 + Math.random()*5) + "s";
+
+    document.body.appendChild(
+        particle
+    );
+
+    setTimeout(function(){
+
+        particle.remove();
+
+    },8000);
+
+}<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MIKOSA</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+#loading{
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.loading-box{
+    width:90%;
+    max-width:800px;
+    font-family:monospace;
+}
+
+.loading-title{
+    font-size:clamp(25px,5vw,55px);
+    font-weight:bold;
+    letter-spacing:8px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.code-area{
+    height:300px;
+    overflow:hidden;
+    border:1px solid #333;
+    padding:15px;
+    background:#000;
+    box-shadow:0 0 30px #fff2;
+}
+
+.code-line{
+    font-size:14px;
+    line-height:1.7;
+    color:#fff;
+    opacity:.8;
+    white-space:nowrap;
+}
+
+.progress{
+    margin-top:20px;
+    height:3px;
+    background:#222;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#fff;
+    animation:download 5s linear forwards;
+}
+
+.loading-status{
+    margin-top:12px;
+    display:flex;
+    justify-content:space-between;
+    font-family:monospace;
+    font-size:13px;
+}
+
+@keyframes download{
+    from{width:0%}
+    to{width:100%}
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+#login{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9000;
+}
+
+.login-box{
+    width:90%;
+    max-width:430px;
+    text-align:center;
+    padding:40px 25px;
+    border:1px solid #333;
+    background:#050505;
+    box-shadow:0 0 40px #fff1;
+}
+
+.logo{
+    font-size:clamp(45px,12vw,80px);
+    font-weight:900;
+    letter-spacing:8px;
+    margin-bottom:20px;
+    animation:glitch 1.5s infinite;
+}
+
+@keyframes glitch{
+    0%,100%{
+        text-shadow:0 0 10px #fff;
+    }
+    50%{
+        text-shadow:5px 0 #fff,-5px 0 #777;
+    }
+}
+
+.login-box h2{
+    font-size:18px;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    color:#777;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    background:#000;
+    border:1px solid #555;
+    color:#fff;
+    outline:none;
+    text-align:center;
+    font-size:16px;
+}
+
+input:focus{
+    border-color:#fff;
+    box-shadow:0 0 15px #fff2;
+}
+
+.login-box span{
+    display:block;
+    margin-top:15px;
+    font-size:12px;
+    color:#555;
+}
+
+#error{
+    margin-top:15px;
+    font-family:monospace;
+    min-height:18px;
+}
+
+/* =========================
+   WEBSITE
+========================= */
+
+#website{
+    display:none;
+}
+
+section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 25px;
+    position:relative;
+    overflow:hidden;
+    background:#000;
+}
+
+.content{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+
+/* garis background */
+
+section::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#222;
+    top:50%;
+}
+
+/* BIG TEXT */
+
+.big-text{
+    font-size:clamp(50px,12vw,140px);
+    font-weight:900;
+    letter-spacing:5px;
+    white-space:nowrap;
+
+    opacity:0;
+    transform:translateX(-150px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+section.active .big-text{
+    opacity:1;
+    transform:translateX(0);
+}
+
+/* DESCRIPTION */
+
+.description{
+    max-width:800px;
+    margin:30px auto 0;
+    color:#999;
+    font-size:18px;
+    line-height:1.8;
+
+    opacity:0;
+    transform:translateY(60px);
+
+    transition:
+        opacity 1s ease .2s,
+        transform 1s ease .2s;
+}
+
+section.active .description{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+}
+
+.hero-small{
+    font-family:monospace;
+    color:#777;
+    letter-spacing:6px;
+    margin-bottom:20px;
+
+    opacity:0;
+    transform:translateY(-30px);
+
+    transition:1s;
+}
+
+.hero.active .hero-small{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.hero h1{
+    font-size:clamp(70px,18vw,190px);
+    font-weight:900;
+    letter-spacing:10px;
+
+    opacity:0;
+    transform:translateX(-200px);
+
+    transition:1.2s;
+}
+
+.hero.active h1{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.hero p{
+    color:#777;
+    margin-top:20px;
+    letter-spacing:4px;
+
+    opacity:0;
+    transform:translateY(40px);
+
+    transition:1s .3s;
+}
+
+.hero.active p{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio-list{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.project{
+    border-left:2px solid #fff;
+    padding:22px;
+    text-align:left;
+    background:#080808;
+
+    opacity:0;
+    transform:translateX(-120px);
+
+    transition:1s;
+}
+
+.project:nth-child(2){
+    transition-delay:.2s;
+}
+
+.project:nth-child(3){
+    transition-delay:.4s;
+}
+
+section.active .project{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.project h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.project p{
+    color:#777;
+}
+
+/* =========================
+   HTML / CSS
+========================= */
+
+.code{
+    margin-top:35px;
+    padding:30px;
+    text-align:left;
+    background:#050505;
+    border:1px solid #222;
+
+    opacity:0;
+    transform:translateX(120px);
+
+    transition:1s;
+}
+
+section.active .code{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.code span{
+    color:#777;
+    font-family:monospace;
+    line-height:2;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    min-height:60vh;
+}
+
+.footer h2{
+    font-size:70px;
+    letter-spacing:8px;
+
+    opacity:0;
+    transform:translateY(50px);
+
+    transition:1s;
+}
+
+.footer.active h2{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.footer p{
+    color:#555;
+    margin-top:20px;
+    letter-spacing:4px;
+}
+
+/* =========================
+   PARTICLE
+========================= */
+
+.particle{
+    position:fixed;
+    bottom:-20px;
+    color:#fff;
+    font-family:monospace;
+    font-size:12px;
+    pointer-events:none;
+    animation:floatUp 5s linear forwards;
+    z-index:1;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.5;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    section{
+        padding:40px 18px;
+    }
+
+    .big-text{
+        white-space:normal;
+        font-size:17vw;
+    }
+
+    .description{
+        font-size:15px;
+    }
+
+    .code-area{
+        height:250px;
+    }
+
+    .code-line{
+        font-size:11px;
+    }
+
+    .footer h2{
+        font-size:45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOADING KODE
+========================= -->
+
+<div id="loading">
+
+    <div class="loading-box">
+
+        <div class="loading-title">
+            MIKOSA
+        </div>
+
+        <div class="code-area" id="codeArea"></div>
+
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="loading-status">
+            <span id="status">DOWNLOADING CODE...</span>
+            <span id="percent">0%</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<div id="login">
+
+    <div class="login-box">
+
+        <div class="logo">
+            MIKOSA
+        </div>
+
+        <h2>PRIVATE ACCESS</h2>
+
+        <p>Ketik sandi untuk masuk</p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Ketik sandi..."
+            autocomplete="off"
+        >
+
+        <span>
+            Tekan ENTER untuk membuka
+        </span>
+
+        <div id="error"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     WEBSITE
+========================= -->
+
+<div id="website">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="content">
+
+            <div class="hero-small">
+                WELCOME TO
+            </div>
+
+            <h1>
+                MIKOSA
+            </h1>
+
+            <p>
+                HTML • CSS • CREATIVE CODE
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- UCAPAN -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                UCAPAN
+            </div>
+
+            <div class="description">
+
+                Selamat datang di halaman MIKOSA.
+                Sebuah ruang sederhana untuk menampilkan
+                karya, proses belajar, dan perjalanan dalam
+                dunia coding.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                PORTFOLIO
+            </div>
+
+            <div class="portfolio-list">
+
+                <div class="project">
+
+                    <h3>
+                        WEB DESIGN
+                    </h3>
+
+                    <p>
+                        Membuat website dengan tampilan
+                        modern, responsif, dan penuh animasi.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        DIGITAL PROJECT
+                    </h3>
+
+                    <p>
+                        Mengembangkan berbagai proyek
+                        digital menggunakan HTML, CSS,
+                        dan JavaScript.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        CREATIVE PROJECT
+                    </h3>
+
+                    <p>
+                        Menggabungkan desain, animasi,
+                        dan teknologi menjadi sebuah karya.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HTML -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                HTML
+            </div>
+
+            <div class="description">
+
+                HTML digunakan untuk membangun struktur
+                sebuah halaman website.
+
+            </div>
+
+            <div class="code">
+
+                <span>
+                    &lt;html&gt;<br>
+                    &nbsp;&nbsp;&lt;head&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;MIKOSA&lt;/title&gt;<br>
+                    &nbsp;&nbsp;&lt;/head&gt;<br>
+                    &nbsp;&nbsp;&lt;body&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Hello MIKOSA<br>
+                    &nbsp;&nbsp;&lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CSS -->
+
+    <section>
+
+        <div class="content">
+
+            <div class="big-text">
+                CSS
+            </div>
+
+            <div class="description">
+
+                CSS digunakan untuk mengatur tampilan,
+                warna, ukuran, posisi, dan animasi website.
+
+            </div>
+
+            <div class="code">
+
+                <span>
+                    body {<br>
+                    &nbsp;&nbsp;background: #000;<br>
+                    &nbsp;&nbsp;color: #fff;<br>
+                    }<br><br>
+
+                    .mikosa {<br>
+                    &nbsp;&nbsp;animation: slide 1s;<br>
+                    }
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <section class="footer">
+
+        <div class="content">
+
+            <h2>
+                MIKOSA
+            </h2>
+
+            <p>
+                KEEP LEARNING • KEEP CREATING
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+/* =========================
+   LOADING CODE
+========================= */
+
+const codeArea =
+    document.getElementById("codeArea");
+
+const percent =
+    document.getElementById("percent");
+
+const status =
+    document.getElementById("status");
+
+let loadingNumber = 0;
+
+const characters =
+"0123456789ABCDEF<>/{}[]();=+-_*#$%";
+
+const loadingInterval =
+setInterval(function(){
+
+    let line = "";
+
+    for(let i=0;i<65;i++){
+
+        line += characters[
             Math.floor(
-                Math.random()*5
+                Math.random()*characters.length
             )
         ];
 
-    heart.style.left =
-        Math.random()*100+"vw";
+    }
 
-    heart.style.animationDuration =
-        (5+Math.random()*6)+"s";
+    const div =
+        document.createElement("div");
 
-    heart.style.fontSize =
-        (15+Math.random()*20)+"px";
+    div.className = "code-line";
+
+    div.innerText =
+        "0x" +
+        Math.floor(Math.random()*999999)
+        .toString(16)
+        .toUpperCase()
+        +
+        "  " +
+        line;
+
+    codeArea.appendChild(div);
+
+    if(codeArea.children.length > 14){
+
+        codeArea.removeChild(
+            codeArea.children[0]
+        );
+
+    }
+
+    loadingNumber++;
+
+    let p =
+        Math.min(
+            100,
+            Math.floor(loadingNumber/1.5)
+        );
+
+    percent.innerText =
+        p + "%";
+
+},100);
 
 
-    document
-    .getElementById("background")
-    .appendChild(heart);
+/* loading selesai */
+
+setTimeout(function(){
+
+    clearInterval(loadingInterval);
+
+    percent.innerText="100%";
+
+    status.innerText=
+        "CODE LOADED • READY";
+
+    setTimeout(function(){
+
+        document.getElementById("loading")
+        .style.opacity="0";
+
+        setTimeout(function(){
+
+            document.getElementById("loading")
+            .style.display="none";
+
+            document.getElementById("login")
+            .style.display="flex";
+
+            document.getElementById("password")
+            .focus();
+
+        },800);
+
+    },700);
+
+},5500);
 
 
-    setTimeout(()=>{
+/* =========================
+   PASSWORD
+========================= */
 
-        heart.remove();
+const passwordInput =
+    document.getElementById("password");
 
-    },11000);
+passwordInput.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Enter"){
+
+            const password =
+                passwordInput.value;
+
+            const error =
+                document.getElementById("error");
+
+            if(password === "mikosa12345678"){
+
+                error.style.color="#fff";
+
+                error.innerText=
+                    "✓ ACCESS GRANTED";
+
+                setTimeout(function(){
+
+                    document.getElementById("login")
+                    .style.opacity="0";
+
+                    setTimeout(function(){
+
+                        document.getElementById("login")
+                        .style.display="none";
+
+                        document.getElementById("website")
+                        .style.display="block";
+
+                        window.scrollTo(0,0);
+
+                        checkScroll();
+
+                    },800);
+
+                },500);
+
+            }else{
+
+                error.style.color="#777";
+
+                error.innerText=
+                    "✕ SANDI SALAH";
+
+                passwordInput.value="";
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================
+   SCROLL ANIMATION
+   REPLAY SETIAP SCROLL
+========================= */
+
+const sections =
+    document.querySelectorAll(
+        "#website section"
+    );
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                        .classList
+                        .add("active");
+
+                }else{
+
+                    entry.target
+                        .classList
+                        .remove("active");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold:0.35
+        }
+
+    );
+
+
+sections.forEach(function(section){
+
+    observer.observe(section);
+
+});
+
+
+/* =========================
+   PARTICLE ANGKA
+========================= */
+
+function createParticle(){
+
+    const particle =
+        document.createElement("div");
+
+    particle.className="particle";
+
+    particle.innerText =
+        Math.floor(
+            Math.random()*999999
+        );
+
+    particle.style.left =
+        Math.random()*100 + "%";
+
+    particle.style.animationDuration =
+        (3 + Math.random()*5) + "s";
+
+    document.body.appendChild(
+        particle
+    );
+
+    setTimeout(function(){
+
+        particle.remove();
+
+    },8000);
 
 }
 
-
 setInterval(
-    backgroundHati,
+    createParticle,
     500
 );
 
 
-/* =================================
-   MUSIK
-================================= */
+/* =========================
+   INITIAL
+========================= */
 
-function putarMusik(){
+function checkScroll(){
 
-    const musik =
-        document.getElementById("musik");
+    sections.forEach(function(section){
 
-    const tombol =
-        document.getElementById("musicButton");
+        const rect =
+            section.getBoundingClientRect();
+
+        if(
+            rect.top <
+            window.innerHeight * .75
+            &&
+            rect.bottom > 0
+        ){
+
+            section.classList.add("active");
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+
+setInterval(
+    createParticle,
+    500
+);
 
 
-    if(musik.paused){
+/* =========================
+   INITIAL
+========================= */
 
-        musik.play()
-        .then(()=>{
+function checkScroll(){
 
-            tombol.innerHTML =
-                "🔊 Musik ON";
+    sections.forEach(function(section){
 
-        });
+        const rect =
+            section.getBoundingClientRect();
 
-    }
+        if(
+            rect.top <
+            window.innerHeight * .75
+            &&
+            rect.bottom > 0
+        ){
 
-    else{
+            section.classList.add("active");
 
-        musik.pause();
+        }
 
-        tombol.innerHTML =
-            "🔇 Musik OFF";
-
-    }
+    });
 
 }
 
